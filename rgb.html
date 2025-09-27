@@ -1,92 +1,201 @@
 <html>
-<head>
-	<title>RGB Game</title>	
-  
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">	
-  
+  <head>
+	  <title>Circles</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  </head>
+  <script type="text/paperscript" canvas="myCanvas">
+  var keyData = {
+      q: {
+          sound: new Howl({
+            src: ['https://github.com/jonobr1/Neuronal-Synchrony/raw/master/assets/A/bubbles.mp3']
+          }),
+          color: '#1abc9c'
+        },
+        w: {
+          sound: new Howl({
+            src: ['https://github.com/jonobr1/Neuronal-Synchrony/raw/master/assets/A/clay.mp3']
+          }),
+          color: '#2ecc71'
+        },
+        e: {
+          sound: new Howl({
+            src: ['https://github.com/jonobr1/Neuronal-Synchrony/raw/master/assets/A/confetti.mp3']
+          }),
+          color: '#3498db'
+        },
+        r: {
+          sound: new Howl({
+            src: ['https://github.com/jonobr1/Neuronal-Synchrony/raw/master/assets/A/corona.mp3']
+          }),
+          color: '#9b59b6'
+        },
+          t: {
+          sound: new Howl({
+            src: ['https://github.com/jonobr1/Neuronal-Synchrony/raw/master/assets/A/dotted-spiral.mp3']
+          }),
+          color: '#34495e'
+        },
+        y: {
+          sound: new Howl({
+            src: ['https://github.com/jonobr1/Neuronal-Synchrony/raw/master/assets/A/flash-1.mp3']
+          }),
+          color: '#16a085'
+        },
+        u: {
+          sound: new Howl({
+            src: ['https://github.com/jonobr1/Neuronal-Synchrony/raw/master/assets/A/flash-2.mp3']
+          }),
+          color: '#27ae60'
+        },
+        i: {
+          sound: new Howl({
+            src: ['https://github.com/jonobr1/Neuronal-Synchrony/raw/master/assets/A/flash-3.mp3']
+          }),
+          color: '#2980b9'
+        },
+        o: {
+          sound: new Howl({
+            src: ['https://github.com/jonobr1/Neuronal-Synchrony/raw/master/assets/A/glimmer.mp3']
+          }),
+          color: '#8e44ad'
+        },
+        p: {
+          sound: new Howl({
+            src: ['https://github.com/jonobr1/Neuronal-Synchrony/raw/master/assets/A/moon.mp3']
+          }),
+          color: '#2c3e50'
+        },
+        a: {
+          sound: new Howl({
+            src: ['https://github.com/jonobr1/Neuronal-Synchrony/raw/master/assets/A/pinwheel.mp3']
+          }),
+          color: '#f1c40f'
+        },
+        s: {
+          sound: new Howl({
+            src: ['https://github.com/jonobr1/Neuronal-Synchrony/raw/master/assets/A/piston-1.mp3']
+          }),
+          color: '#e67e22'
+        },
+          d: {
+          sound: new Howl({
+            src: ['https://github.com/jonobr1/Neuronal-Synchrony/raw/master/assets/A/piston-2.mp3']
+          }),
+          color: '#e74c3c'
+        },
+        f: {
+          sound: new Howl({
+            src: ['https://github.com/jonobr1/Neuronal-Synchrony/raw/master/assets/A/prism-1.mp3']
+          }),
+          color: '#95a5a6'
+        },
+        g: {
+          sound: new Howl({
+            src: ['https://github.com/jonobr1/Neuronal-Synchrony/raw/master/assets/A/prism-2.mp3']
+          }),
+          color: '#f39c12'
+        },
+        h: {
+          sound: new Howl({
+            src: ['https://github.com/jonobr1/Neuronal-Synchrony/raw/master/assets/A/prism-3.mp3']
+          }),
+          color: '#d35400'
+        },
+        j: {
+          sound: new Howl({
+            src: ['https://github.com/jonobr1/Neuronal-Synchrony/raw/master/assets/A/splits.mp3']
+          }),
+          color: '#1abc9c'
+        },
+        k: {
+          sound: new Howl({
+            src: ['https://github.com/jonobr1/Neuronal-Synchrony/raw/master/assets/A/squiggle.mp3']
+          }),
+          color: '#2ecc71'
+        },
+        l: {
+          sound: new Howl({
+            src: ['https://github.com/jonobr1/Neuronal-Synchrony/raw/master/assets/A/strike.mp3']
+          }),
+          color: '#3498db'
+        },
+        z: {
+          sound: new Howl({
+            src: ['https://github.com/jonobr1/Neuronal-Synchrony/raw/master/assets/A/suspension.mp3']
+          }),
+          color: '#9b59b6'
+        },
+        x: {
+          sound: new Howl({
+            src: ['https://github.com/jonobr1/Neuronal-Synchrony/raw/master/assets/A/timer.mp3']
+          }),
+          color: '#34495e'
+        },
+        c: {
+          sound: new Howl({
+            src: ['https://github.com/jonobr1/Neuronal-Synchrony/raw/master/assets/A/ufo.mp3']
+          }),
+          color: '#16a085'
+        },
+        v: {
+          sound: new Howl({
+            src: ['https://github.com/jonobr1/Neuronal-Synchrony/raw/master/assets/A/veil.mp3']
+          }),
+          color: '#27ae60'
+        },
+        b: {
+          sound: new Howl({
+            src: ['https://github.com/jonobr1/Neuronal-Synchrony/raw/master/assets/A/wipe.mp3']
+          }),
+          color: '#2980b9'
+        },
+        n: {
+          sound: new Howl({
+            src: ['https://github.com/jonobr1/Neuronal-Synchrony/raw/master/assets/A/zig-zag.mp3']
+          }),
+          color: '#8e44ad'
+        },
+        m: {
+          sound: new Howl({
+            src: ['https://github.com/jonobr1/Neuronal-Synchrony/raw/master/assets/A/moon.mp3']
+          }),
+          color: '#2c3e50'
+        }
+      }
+  var circles=[];
+  function onKeyDown(event) {
+  var maxPoint=new Point(view.size.width,view.size.height);
+  var randomPoint=Point.random();
+  var point=maxPoint*randomPoint;
+  var newCircle= new Path.Circle(point, 200);
+      keyData[event.key].sound.play();
+      newCircle.fillColor = keyData[event.key].color;
+      circles.push(newCircle);
+  };
+
+  function onFrame(event) {
+  for(var i=0;i<circles.length;i++){
+  circles[i].fillColor.hue += 1;
+  circles[i].scale(.95);
+  if(circles[i].area < 1){
+        circles[i].remove();
+        circles.splice(i, 1);
+        console.log(circles);
+      }
+  }
+  }
+  </script>
+
+
 </head>
 <body>
-  <!-- START NAV CONTAINER  -->
-	<div class="container-fluid " id="logansNavbar">
-		<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-		  <a class="navbar-brand" id="logansLogo" href="#">RGB Game</a>
-		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-		    <span class="navbar-toggler-icon"></span>
-		  </button>
-		  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-		    <div class="navbar-nav">		     	      
-		      <a target="_tab" class="nav-item nav-link" href="https://codepen.io/cb2307/full/NzaOrm?editors=1100">Portfolio</a>		     
-		    </div>
-		  </div>
-		</nav>
-		<!-- END OF NAV -->
-	</div>
-	<!--  END OF NAV CONTAINER -->
-
-	<!-- START MAIN CONTAINER -->
-	<div class="container-fluid">
-		<h1>The Great
-			<br>
-			<span id="colorDisplay"></span>
-			<br>
-			Color Game
-		</h1>
-
-		<div id="stripe">
-			<button id="reset">New Colors</button>
-			<span id="message"></span>
-			<button id="easyBtn">Easy</button>
-			<button id="hardBtn">Hard</button>
-		</div>
-		<!-- END OF NAV BAR -->
-	</div>
-	<!-- END OF JUMBOTRON -->
-
-	<div class="container text-center" >
-		<!-- START ROW 1 -->
-		<div class="row text-center" id="container-format">
-			<div class="col col-md-4">
-				<div class="square"></div>
-			</div>
-			<div class="col col-md-4">
-				<div class="square"></div>
-			</div>
-
-			<div class="col col-md-4">
-				<div class="square"></div>
-			</div>
-		</div>
-		<!-- END OF ROW 1 -->
-
-		<!-- START ROW 2 -->
-		<div class="row text-center" id="container-format">
-			<div class="col col-md-4">
-				<div class="square"></div>
-			</div>
-			<div class="col col-md-4">
-				<div class="square"></div>
-			</div>
-
-			<div class="col col-md-4">
-				<div class="square"></div>
-			</div>
-		</div>
-		<!-- END OF ROW 2 -->
-
-	</div>
-
-	<!-- START FOOTER -->
-	<div class="container text-center text-light">
-		<div class="footer">
-			<p><i class="far fa-copyright"></i> Carlos Avila 2018</p>
-		</div>		
-	</div>
-	<!-- END OF FOOTER -->
-
-
-
-	<!-- SCRIPTS -->
-	
-	
+	<canvas id="myCanvas" resize></canvas>
+  <div class="fixed-top text-center text-warning">
+     <h3>Click anywhere on the Black Screen and then Press Any Key from A-Z</h3>
+  </div>
+  <div class="footer text-center fixed-bottom text-light">
+    <p><a target="_blank" href="https://codepen.io/cb2307/full/NzaOrm">Portfolio</a></p>
+    <p><strong>&copy Coded by Carlos Avila 2018</strong></p>
+  </div>
 </body>
 </html>
